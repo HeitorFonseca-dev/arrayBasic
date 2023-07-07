@@ -4,29 +4,27 @@ function meuEscopo() {
     const resultado = document.querySelector('.resultado');
     const pessoas = [];
 
+
     function recebeEventoForm(evento) {
         evento.preventDefault();
 
-        const nome = form.querySelector('.nome');
-        const sobrenome = form.querySelector('.sobrenome');
-        const peso = form.querySelector('.peso');
-        const altura = form.querySelector('.altura');
+        const nome = form.querySelector('.nome').value;
+        const sobrenome = form.querySelector('.sobrenome').value;
+        const peso = form.querySelector('.peso').value;
+        const altura = form.querySelector('.altura').value;
 
-        let IMC = peso.value /(altura.value*altura.value);
+        let pessoa = { nome: nome, sobrenome: sobrenome, peso: peso, altura: altura };
+       
+        pessoas.push(pessoa);
 
-        resultado.innerHTML = (`O imc de ${nome.value} ${sobrenome.value} é ${IMC.toFixed(2)}`);
+        console.log(pessoas)
 
-        pessoas = resultado;
-        
-        return (pessoas);
+        resultado.innerHTML += `<p>${nome} ${sobrenome} ${peso} ${altura}</p>`
         
 
     }
-
-
-    form.addEventListener('submit', recebeEventoForm)
     
-
+    form.addEventListener('submit', recebeEventoForm)
 }
 
 meuEscopo();
